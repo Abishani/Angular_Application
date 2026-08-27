@@ -31,39 +31,24 @@
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
   cursor: pointer;
 
-  .logo-mark {
-    color: var(--color-primary-navy);
-    display: flex;
-    align-items: center;
+  .brand-logo-svg {
+    height: 38px;
+    width: auto;
+    max-width: 175px;
+    display: block;
     transition: transform var(--transition-fast);
+
+    @include mobile {
+      height: 32px;
+      max-width: 145px;
+    }
   }
 
-  &:hover .logo-mark {
-    transform: scale(1.04);
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.05;
-
-    .logo-title {
-      font-size: 15.5px;
-      font-weight: 800;
-      color: var(--color-primary-navy);
-      letter-spacing: -0.02em;
-    }
-
-    .logo-subtitle {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--color-primary-navy);
-      letter-spacing: 0.01em;
-    }
+  &:hover .brand-logo-svg {
+    transform: scale(1.02);
   }
 }
 
