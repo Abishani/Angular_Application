@@ -40,34 +40,21 @@
 .footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
 
-  .logo-mark {
-    display: flex;
-    align-items: center;
-  }
+  .footer-logo-svg {
+    height: 36px;
+    width: auto;
+    max-width: 165px;
+    display: block;
 
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.05;
-    text-align: left;
-
-    .logo-title {
-      font-size: 15px;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.02em;
-    }
-
-    .logo-subtitle {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: #FFFFFF;
-      letter-spacing: 0.01em;
+    @include mobile {
+      height: 30px;
+      max-width: 140px;
     }
   }
 }
+
+
 
 .footer-divider {
   width: 1px;
