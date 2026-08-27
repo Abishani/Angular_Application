@@ -1,0 +1,79 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/responsive' as *;
+
+.landing-main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+// Trust Section
+.trust-section {
+  padding-top: 16px;
+  padding-bottom: 56px;
+
+  @include mobile {
+    padding-top: 8px;
+    padding-bottom: 36px;
+  }
+}
+
+// Audience Cards Grid
+.audience-section {
+  padding-top: 24px;
+  padding-bottom: 48px;
+
+  @include mobile {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+}
+
+.audience-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    & > *:last-child {
+      grid-column: span 2;
+      max-width: 50%;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    & > *:last-child {
+      grid-column: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+// Testimonials Grid
+.testimonials-section {
+  padding-top: 24px;
+  padding-bottom: 48px;
+
+  @include mobile {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include tablet-down {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}

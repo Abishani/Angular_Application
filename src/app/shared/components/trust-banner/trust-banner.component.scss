@@ -1,0 +1,141 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/responsive' as *;
+
+.trust-banner {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  box-shadow: 0 4px 20px rgba(11, 15, 59, 0.03);
+
+  @include tablet-down {
+    padding: 28px 32px;
+    flex-direction: column;
+    text-align: center;
+    gap: 28px;
+  }
+
+  @include mobile {
+    padding: 24px 18px;
+    gap: 24px;
+  }
+}
+
+.trust-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.partners-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 64px;
+  flex-wrap: wrap;
+
+  @include tablet-down {
+    justify-content: center;
+    gap: 48px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+  }
+}
+
+.partner-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .partner-sub {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #4B5563;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .partner-location {
+    font-size: 11px;
+    color: #6B7280;
+    margin-top: 2px;
+  }
+}
+
+// CEFCO Logo Styling
+.partner-cefco {
+  .cefco-graphic {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .cefco-bar {
+      height: 6px;
+      background-color: #3FA535;
+      border-radius: 1px;
+
+      &.left-bar {
+        width: 32px;
+      }
+      &.right-bar {
+        width: 16px;
+      }
+    }
+
+    .cefco-text {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #2D3748;
+      font-family: inherit;
+      line-height: 1;
+    }
+  }
+}
+
+// SAWI Logo Styling
+.partner-sawi {
+  .sawi-graphic {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #111827;
+    line-height: 1;
+
+    .sawi-w-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      .sawi-slash {
+        position: absolute;
+        width: 4px;
+        height: 24px;
+        background-color: #F7D100;
+        transform: rotate(28deg);
+        right: 0px;
+        top: -4px;
+        border-radius: 1px;
+      }
+    }
+  }
+}

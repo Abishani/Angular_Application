@@ -1,0 +1,129 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/responsive' as *;
+
+.audience-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: var(--color-navy-dark);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+
+    .card-image {
+      transform: scale(1.06);
+    }
+
+    .card-action-link {
+      color: #FFFFFF;
+      
+      .action-icon {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  @include tablet-down {
+    height: 460px;
+  }
+
+  @include mobile {
+    height: 420px;
+  }
+}
+
+.card-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(7, 10, 42, 0.05) 0%,
+      rgba(7, 10, 42, 0.3) 40%,
+      rgba(7, 10, 42, 0.88) 70%,
+      rgba(7, 10, 42, 0.98) 100%
+    );
+  }
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @include mobile {
+    padding: 24px 20px;
+    gap: 12px;
+  }
+
+  .card-title {
+    color: var(--color-text-white);
+    font-size: clamp(1.25rem, 1.8vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .card-description {
+    color: #D6DAE5;
+    font-size: 13.5px;
+    line-height: 1.55;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-action-link {
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 4px 0 0 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-fast);
+    width: fit-content;
+
+    &:hover {
+      text-decoration-color: #FFFFFF;
+      opacity: 0.9;
+      transform: translateX(2px);
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@use '../../../../../styles/variables' as *;
+@use '../../../../../styles/responsive' as *;
+
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  max-height: 860px;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  background-color: var(--color-bg-white);
+  overflow: hidden;
+
+  @include tablet-down {
+    min-height: auto;
+    max-height: none;
+    padding-top: 110px;
+    padding-bottom: 48px;
+  }
+
+  @include mobile {
+    padding-top: 96px;
+    padding-bottom: 36px;
+  }
+}
+
+// Hero Background Container with Layered Overlays
+.hero-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+
+  @include tablet-down {
+    width: 82%;
+    opacity: 0.5;
+  }
+
+  @include mobile {
+    width: 100%;
+    opacity: 0.25;
+  }
+
+  // 1. Base Uploaded Background Image
+  .bgImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% center;
+    filter: contrast(1.18) brightness(1.05);
+    display: block;
+    z-index: 1;
+  }
+
+  // 2. Color Tint Overlay (Mix-blend-mode: color to tint the raw photo with purple-to-blue)
+  .hero-color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(240, 235, 255, 0.2) 0%,
+      rgba(200, 185, 255, 0.7) 20%,
+      rgba(140, 130, 245, 0.85) 45%,
+      rgba(75, 95, 225, 0.92) 75%,
+      rgba(30, 45, 175, 0.98) 100%
+    );
+    mix-blend-mode: color;
+    z-index: 2;
+  }
+
+  // 3. Multiply Overlay (Mix-blend-mode: multiply for rich deep blue shadows & highlights)
+  .hero-multiply-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      #FFFFFF 0%,
+      rgba(235, 225, 255, 0.3) 15%,
+      rgba(155, 135, 245, 0.55) 38%,
+      rgba(65, 80, 205, 0.78) 68%,
+      rgba(20, 30, 130, 0.92) 100%
+    );
+    mix-blend-mode: multiply;
+    z-index: 3;
+  }
+
+  // 4. Smooth Horizontal White Fade Overlay on Left Edge
+  .hero-fade-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      #FFFFFF 0%,
+      rgba(255, 255, 255, 0.95) 12%,
+      rgba(255, 255, 255, 0.6) 30%,
+      rgba(255, 255, 255, 0.15) 55%,
+      transparent 75%
+    );
+    z-index: 4;
+  }
+}
+
+.hero-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include mobile {
+    gap: 18px;
+  }
+}
+
+.hero-heading {
+  color: var(--color-primary-navy);
+  font-weight: 800;
+  line-height: 1.06;
+
+  span {
+    display: inline;
+  }
+
+  .text-gradient {
+    font-weight: 800;
+  }
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  max-width: 460px;
+}
+
+.hero-actions {
+  margin-top: 8px;
+}
